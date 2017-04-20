@@ -7,8 +7,8 @@ RUN \
   chown -R rss:rss /home/rss
 
 RUN \
-  apt update && \
-  apt install -y \
+  apt update \
+  && apt install -y \
     build-essential \
     libsqlite3-dev \
     libstfl-dev \
@@ -19,15 +19,15 @@ RUN \
     libncursesw5-dev \
     libssl-dev \
     gettext \
-    git
+    git \
+    elinks \
+    curl
 
 RUN \
-  git clone https://github.com/akrennmair/newsbeuter.git /code && \
-  cd /code && \
-  make && \
-  make install
-
-RUN apt install -y vim strace
+  git clone https://github.com/akrennmair/newsbeuter.git /code \
+  && cd /code \
+  && make \
+  && make install
 
 ENV HOME /home/rss
 USER rss
