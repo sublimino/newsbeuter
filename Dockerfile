@@ -21,7 +21,8 @@ RUN \
     gettext \
     git \
     elinks \
-    curl
+    curl \
+    jq
 
 RUN \
   git clone https://github.com/akrennmair/newsbeuter.git /code \
